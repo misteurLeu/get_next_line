@@ -1,0 +1,746 @@
+temp : 
+temp : /* *
+temp : /* *****
+temp : /* *********
+temp : /* *************
+temp : /* *****************
+temp : /* *********************
+temp : /* *************************
+temp : /* *****************************
+temp : /* *********************************
+temp : /* *************************************
+temp : /* *****************************************
+temp : /* *********************************************
+temp : /* *************************************************
+temp : /* *****************************************************
+temp : /* *********************************************************
+temp : /* *************************************************************
+temp : /* *****************************************************************
+temp : /* *********************************************************************
+temp : /* *************************************************************************
+temp : /* ************************************************************************** */
+/* ************************************************************************** */
+temp : 
+temp : * 
+temp : *     
+temp : *         
+temp : *             
+temp : *                 
+temp : *                     
+temp : *                         
+temp : *                             
+temp : *                                 
+temp : *                                     
+temp : *                                         
+temp : *                                             
+temp : *                                                 
+temp : *                                                     
+temp : *                                                         
+temp : *                                                             
+temp : *                                                                 
+temp : *                                                                     
+temp : *                                                                         
+temp : *                                                                            *
+*                                                                            */
+temp : 
+temp : *
+temp : *    
+temp : *        
+temp : *            
+temp : *                
+temp : *                    
+temp : *                        
+temp : *                            
+temp : *                                
+temp : *                                    
+temp : *                                        
+temp : *                                            
+temp : *                                                
+temp : *                                                    
+temp : *                                                        
+temp : *                                                        ::: 
+temp : *                                                        :::     
+temp : *                                                        :::      :::
+temp : *                                                        :::      :::::::
+temp : 
+*/
+temp : 
+temp : 
+temp : *   
+temp : *   get_
+temp : *   get_next
+temp : *   get_next_lin
+temp : *   get_next_line.c 
+temp : *   get_next_line.c     
+temp : *   get_next_line.c         
+temp : *   get_next_line.c             
+temp : *   get_next_line.c                 
+temp : *   get_next_line.c                     
+temp : *   get_next_line.c                         
+temp : *   get_next_line.c                             
+temp : *   get_next_line.c                                 
+temp : *   get_next_line.c                                    :
+temp : *   get_next_line.c                                    :+:  
+temp : *   get_next_line.c                                    :+:      
+temp : *   get_next_line.c                                    :+:      :+: 
+temp : *   get_next_line.c                                    :+:      :+:    :
+temp : *   get_next_line.c                                    :+:      :+:    :+:  
+*   get_next_line.c                                    :+:      :+:    :+:   */
+temp : 
+temp : /*  
+temp : /*      
+temp : /*          
+temp : /*              
+temp : /*                  
+temp : /*                      
+temp : /*                          
+temp : /*                              
+temp : /*                                  
+temp : /*                                      
+temp : /*                                          
+temp : /*                                              
+temp : /*                                                  
+temp : /*                                                    +:
+temp : /*                                                    +:+ +:
+temp : /*                                                    +:+ +:+   
+temp : /*                                                    +:+ +:+       
+temp : /*                                                    +:+ +:+         +:
+temp : /*                                                    +:+ +:+         +:+   
+temp : /*                                                    +:+ +:+         +:+     */
+/*                                                    +:+ +:+         +:+     */
+temp : 
+temp : * 
+temp : *   By
+temp : *   By: jl
+temp : *   By: jleu <
+temp : *   By: jleu <marv
+temp : *   By: jleu <marvin@4
+temp : *   By: jleu <marvin@42.fr
+temp : *   By: jleu <marvin@42.fr>   
+temp : *   By: jleu <marvin@42.fr>       
+temp : *   By: jleu <marvin@42.fr>           
+temp : *   By: jleu <marvin@42.fr>               
+temp : *   By: jleu <marvin@42.fr>                   
+temp : *   By: jleu <marvin@42.fr>                       
+temp : *   By: jleu <marvin@42.fr>                        +#+
+temp : *   By: jleu <marvin@42.fr>                        +#+  +:
+temp : *   By: jleu <marvin@42.fr>                        +#+  +:+   
+temp : *   By: jleu <marvin@42.fr>                        +#+  +:+       
+temp : *   By: jleu <marvin@42.fr>                        +#+  +:+       +#+ 
+temp : *   By: jleu <marvin@42.fr>                        +#+  +:+       +#+     
+temp : 
+/
+temp : 
+temp : *
+temp : *    
+temp : *        
+temp : *            
+temp : *                
+temp : *                    
+temp : *                        
+temp : *                            
+temp : *                                
+temp : *                                    
+temp : *                                        
+temp : *                                            
+temp : *                                                
+temp : *                                                +#+#
+temp : *                                                +#+#+#+#
+temp : *                                                +#+#+#+#+#+ 
+temp : *                                                +#+#+#+#+#+   +#
+temp : *                                                +#+#+#+#+#+   +#+   
+temp : *                                                +#+#+#+#+#+   +#+       
+temp : 
+*/
+temp : 
+temp : 
+temp : *   
+temp : *   Crea
+temp : *   Created:
+temp : *   Created: 201
+temp : *   Created: 2016/01
+temp : *   Created: 2016/01/07 
+temp : *   Created: 2016/01/07 15:0
+temp : *   Created: 2016/01/07 15:09:19
+temp : *   Created: 2016/01/07 15:09:19 by 
+temp : *   Created: 2016/01/07 15:09:19 by jleu
+temp : *   Created: 2016/01/07 15:09:19 by jleu    
+temp : *   Created: 2016/01/07 15:09:19 by jleu        
+temp : *   Created: 2016/01/07 15:09:19 by jleu            
+temp : *   Created: 2016/01/07 15:09:19 by jleu              #+
+temp : *   Created: 2016/01/07 15:09:19 by jleu              #+#   
+temp : *   Created: 2016/01/07 15:09:19 by jleu              #+#    #+#
+temp : *   Created: 2016/01/07 15:09:19 by jleu              #+#    #+#    
+temp : *   Created: 2016/01/07 15:09:19 by jleu              #+#    #+#        
+temp : *   Created: 2016/01/07 15:09:19 by jleu              #+#    #+#            
+*   Created: 2016/01/07 15:09:19 by jleu              #+#    #+#             */
+temp : 
+temp : /*  
+temp : /*   Upd
+temp : /*   Updated
+temp : /*   Updated: 20
+temp : /*   Updated: 2016/0
+temp : /*   Updated: 2016/01/10
+temp : /*   Updated: 2016/01/10 14:
+temp : /*   Updated: 2016/01/10 14:51:2
+temp : /*   Updated: 2016/01/10 14:51:28 by
+temp : /*   Updated: 2016/01/10 14:51:28 by jle
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu   
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu       
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu           
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu             ##
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu             ###   
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu             ###   ####
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu             ###   ########
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu             ###   ########.fr 
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu             ###   ########.fr     
+temp : /*   Updated: 2016/01/10 14:51:28 by jleu             ###   ########.fr       */
+/*   Updated: 2016/01/10 14:51:28 by jleu             ###   ########.fr       */
+temp : 
+temp : * 
+temp : *     
+temp : *         
+temp : *             
+temp : *                 
+temp : *                     
+temp : *                         
+temp : *                             
+temp : *                                 
+temp : *                                     
+temp : *                                         
+temp : *                                             
+temp : *                                                 
+temp : *                                                     
+temp : *                                                         
+temp : *                                                             
+temp : *                                                                 
+temp : *                                                                     
+temp : *                                                                         
+temp : 
+/
+temp : 
+temp : *
+temp : * ***
+temp : * *******
+temp : * ***********
+temp : * ***************
+temp : * *******************
+temp : * ***********************
+temp : * ***************************
+temp : * *******************************
+temp : * ***********************************
+temp : * ***************************************
+temp : * *******************************************
+temp : * ***********************************************
+temp : * ***************************************************
+temp : * *******************************************************
+temp : * ***********************************************************
+temp : * ***************************************************************
+temp : * *******************************************************************
+temp : * ***********************************************************************
+temp : 
+*/
+temp : 
+temp : 
+temp : #inc
+temp : #include
+temp : #include "ge
+temp : #include "get_ne
+temp : #include "get_next_l
+temp : #include "get_next_line.
+#include "get_next_line.h"
+temp : 
+temp : 
+temp : incl
+temp : include 
+temp : include <fcn
+temp : include <fcntl.h
+include <fcntl.h>
+temp : 
+temp : s
+temp : stati
+temp : static t_
+temp : static t_gnl	
+temp : static t_gnl	*new
+temp : static t_gnl	*new_gnl
+temp : static t_gnl	*new_gnl(int
+temp : static t_gnl	*new_gnl(int con
+temp : static t_gnl	*new_gnl(int const f
+static t_gnl	*new_gnl(int const fd)
+temp : 
+temp : 
+
+temp : 
+temp : t_
+temp : t_gnl 
+temp : t_gnl *gnl
+t_gnl *gnl;
+temp : 
+temp : 	
+temp : 	if (
+temp : 	if (!(gn
+temp : 	if (!(gnl = 
+temp : 	if (!(gnl = (t_g
+temp : 	if (!(gnl = (t_gnl*)
+temp : 	if (!(gnl = (t_gnl*)mall
+temp : 	if (!(gnl = (t_gnl*)malloc(s
+temp : 	if (!(gnl = (t_gnl*)malloc(sizeo
+temp : 	if (!(gnl = (t_gnl*)malloc(sizeof(t_
+temp : 	if (!(gnl = (t_gnl*)malloc(sizeof(t_gnl)
+	if (!(gnl = (t_gnl*)malloc(sizeof(t_gnl))))
+temp : 
+temp : 		re
+temp : 		return
+temp : 		return (NU
+temp : 		return (NULL);
+		return (NULL);
+temp : 
+temp : if
+temp : if (!(
+temp : if (!(gnl-
+temp : if (!(gnl->buf
+temp : if (!(gnl->buf = f
+temp : if (!(gnl->buf = ft_st
+temp : if (!(gnl->buf = ft_strnew
+temp : if (!(gnl->buf = ft_strnew(BUF
+temp : if (!(gnl->buf = ft_strnew(BUF_SIZ
+temp : if (!(gnl->buf = ft_strnew(BUF_SIZE)))
+if (!(gnl->buf = ft_strnew(BUF_SIZE)))
+temp : 
+{
+temp : 
+temp : 			f
+temp : 			free(
+temp : 			free(gnl)
+			free(gnl);
+temp : 
+temp : 	
+temp : 		ret
+temp : 		return 
+temp : 		return (NUL
+		return (NULL);
+temp : 
+	}
+temp : 
+temp : 
+temp : else
+else
+temp : 
+{
+temp : 
+temp : 		gn
+temp : 		gnl->f
+temp : 		gnl->fd = 
+		gnl->fd = fd;
+temp : 
+temp : 		gn
+temp : 		gnl->p
+temp : 		gnl->posbu
+temp : 		gnl->posbuf = 
+		gnl->posbuf = 0;
+temp : 
+temp : 
+}
+temp : 
+temp : r
+temp : retur
+temp : return (g
+temp : return (gnl);
+return (gnl);
+temp : 
+
+temp : 
+temp : 
+temp : int	
+temp : int	get_
+temp : int	get_next
+temp : int	get_next_lin
+temp : int	get_next_line(in
+temp : int	get_next_line(int co
+temp : int	get_next_line(int const 
+temp : int	get_next_line(int const fd, 
+temp : int	get_next_line(int const fd, char
+temp : int	get_next_line(int const fd, char **l
+temp : int	get_next_line(int const fd, char **line)
+int	get_next_line(int const fd, char **line)
+temp : 
+
+temp : 
+temp : 
+temp : stat
+temp : static t
+temp : static t_gnl
+temp : static t_gnl	*gn
+temp : static t_gnl	*gnl = 
+temp : static t_gnl	*gnl = NULL
+static t_gnl	*gnl = NULL;
+temp : 
+temp : c
+temp : char 
+temp : char 			*
+temp : char 			*temp
+char 			*temp;
+temp : 
+temp : s
+temp : size_
+temp : size_t			
+temp : size_t			save
+temp : size_t			saveprec
+temp : size_t			saveprecpos;
+size_t			saveprecpos;
+temp : 
+temp : 	i
+temp : 	if (g
+temp : 	if (gnl =
+temp : 	if (gnl == NU
+	if (gnl == NULL)
+temp : 
+temp : 		if
+temp : 		if (!(
+temp : 		if (!(gnl 
+temp : 		if (!(gnl = ne
+temp : 		if (!(gnl = new_gn
+temp : 		if (!(gnl = new_gnl(fd
+		if (!(gnl = new_gnl(fd)))
+temp : 
+temp : 			r
+temp : 			retur
+temp : 			return (-
+			return (-1);
+temp : 
+temp : 	if(
+temp : 	if(gnl-
+temp : 	if(gnl->buf
+temp : 	if(gnl->buf[gnl
+temp : 	if(gnl->buf[gnl->po
+temp : 	if(gnl->buf[gnl->posbuf
+temp : 	if(gnl->buf[gnl->posbuf] ==
+temp : 	if(gnl->buf[gnl->posbuf] == '\n
+	if(gnl->buf[gnl->posbuf] == '\n')
+temp : 
+temp : 
+{
+temp : 
+temp : 	
+temp : 		ft_
+temp : 		ft_strd
+temp : 		ft_strdel(l
+temp : 		ft_strdel(line)
+		ft_strdel(line);
+temp : 
+temp : 	
+temp : 		gnl
+temp : 		gnl->po
+temp : 		gnl->posbuf
+		gnl->posbuf++;
+temp : 
+	}
+temp : 
+temp : 
+temp : if (
+temp : if (gnl-
+temp : if (gnl->buf
+temp : if (gnl->buf[gnl
+temp : if (gnl->buf[gnl->po
+temp : if (gnl->buf[gnl->posbuf
+temp : if (gnl->buf[gnl->posbuf] ==
+temp : if (gnl->buf[gnl->posbuf] == '\0
+temp : if (gnl->buf[gnl->posbuf] == '\0' ||
+temp : if (gnl->buf[gnl->posbuf] == '\0' || gnl
+temp : if (gnl->buf[gnl->posbuf] == '\0' || gnl->bu
+temp : if (gnl->buf[gnl->posbuf] == '\0' || gnl->buf[gn
+temp : if (gnl->buf[gnl->posbuf] == '\0' || gnl->buf[gnl->p
+temp : if (gnl->buf[gnl->posbuf] == '\0' || gnl->buf[gnl->posbu
+temp : if (gnl->buf[gnl->posbuf] == '\0' || gnl->buf[gnl->posbuf] =
+temp : if (gnl->buf[gnl->posbuf] == '\0' || gnl->buf[gnl->posbuf] == 26
+if (gnl->buf[gnl->posbuf] == '\0' || gnl->buf[gnl->posbuf] == 26)
+temp : 
+temp : {
+{
+temp : 
+temp : 	i
+temp : 	if(!(
+temp : 	if(!(read
+temp : 	if(!(read(gnl
+temp : 	if(!(read(gnl->fd
+temp : 	if(!(read(gnl->fd, gn
+temp : 	if(!(read(gnl->fd, gnl->b
+temp : 	if(!(read(gnl->fd, gnl->buf, 
+temp : 	if(!(read(gnl->fd, gnl->buf, BUF_
+temp : 	if(!(read(gnl->fd, gnl->buf, BUF_SIZE
+	if(!(read(gnl->fd, gnl->buf, BUF_SIZE)))
+temp : 
+		{
+temp : 
+temp : 			f
+temp : 			free(
+temp : 			free(gnl-
+temp : 			free(gnl->buf
+			free(gnl->buf);
+temp : 
+temp : 
+temp : 		fr
+temp : 		free(g
+temp : 		free(gnl);
+		free(gnl);
+temp : 
+temp : 		
+temp : 		retu
+temp : 		return (
+		return (0);
+temp : 
+		}
+temp : 
+temp : 		gn
+temp : 		gnl->p
+temp : 		gnl->posbu
+temp : 		gnl->posbuf = 
+		gnl->posbuf = 0;
+temp : 
+temp : 
+}
+temp : 
+temp : i
+temp : if (g
+temp : if (gnl->
+temp : if (gnl->posb
+temp : if (gnl->posbuf !
+temp : if (gnl->posbuf != 0)
+if (gnl->posbuf != 0)
+temp : 
+{
+temp : 
+temp : 		gn
+temp : 		gnl->p
+temp : 		gnl->posbu
+temp : 		gnl->posbuf++;
+		gnl->posbuf++;
+temp : 
+temp : 	f
+temp : 	ft_st
+temp : 	ft_strdel
+temp : 	ft_strdel(lin
+	ft_strdel(line);
+temp : 
+	}
+temp : 
+temp : 
+temp : save
+temp : saveprec
+temp : saveprecpos 
+temp : saveprecpos = gn
+temp : saveprecpos = gnl->p
+temp : saveprecpos = gnl->posbu
+saveprecpos = gnl->posbuf;
+temp : 
+temp : 
+temp : whil
+temp : while (g
+temp : while (gnl->
+temp : while (gnl->buf[
+temp : while (gnl->buf[gnl-
+temp : while (gnl->buf[gnl->pos
+temp : while (gnl->buf[gnl->posbuf]
+temp : while (gnl->buf[gnl->posbuf] != 
+temp : while (gnl->buf[gnl->posbuf] != '\n'
+temp : while (gnl->buf[gnl->posbuf] != '\n' && 
+temp : while (gnl->buf[gnl->posbuf] != '\n' && gnl-
+temp : while (gnl->buf[gnl->posbuf] != '\n' && gnl->buf
+temp : while (gnl->buf[gnl->posbuf] != '\n' && gnl->buf[gnl
+temp : while (gnl->buf[gnl->posbuf] != '\n' && gnl->buf[gnl->po
+temp : while (gnl->buf[gnl->posbuf] != '\n' && gnl->buf[gnl->posbuf
+temp : while (gnl->buf[gnl->posbuf] != '\n' && gnl->buf[gnl->posbuf] !=
+temp : while (gnl->buf[gnl->posbuf] != '\n' && gnl->buf[gnl->posbuf] != '\0
+while (gnl->buf[gnl->posbuf] != '\n' && gnl->buf[gnl->posbuf] != '\0'
+temp : 
+temp : 	
+temp : 		&& 
+temp : 		&& gnl-
+temp : 		&& gnl->buf
+temp : 		&& gnl->buf[gnl
+temp : 		&& gnl->buf[gnl->po
+temp : 		&& gnl->buf[gnl->posbuf
+temp : 		&& gnl->buf[gnl->posbuf] !=
+temp : 		&& gnl->buf[gnl->posbuf] != 26)
+		&& gnl->buf[gnl->posbuf] != 26)
+temp : 
+temp : 	g
+temp : 	gnl->
+temp : 	gnl->posb
+temp : 	gnl->posbuf++
+	gnl->posbuf++;
+temp : 
+temp : i
+temp : if (!
+temp : if (!(tem
+temp : if (!(temp = 
+temp : if (!(temp = ft_s
+temp : if (!(temp = ft_strne
+temp : if (!(temp = ft_strnew(gn
+temp : if (!(temp = ft_strnew(gnl->p
+temp : if (!(temp = ft_strnew(gnl->posbu
+temp : if (!(temp = ft_strnew(gnl->posbuf - 
+temp : if (!(temp = ft_strnew(gnl->posbuf - save
+temp : if (!(temp = ft_strnew(gnl->posbuf - saveprec
+temp : if (!(temp = ft_strnew(gnl->posbuf - saveprecpos 
+temp : if (!(temp = ft_strnew(gnl->posbuf - saveprecpos + ft
+temp : if (!(temp = ft_strnew(gnl->posbuf - saveprecpos + ft_str
+temp : if (!(temp = ft_strnew(gnl->posbuf - saveprecpos + ft_strlen(
+temp : if (!(temp = ft_strnew(gnl->posbuf - saveprecpos + ft_strlen(*lin
+temp : if (!(temp = ft_strnew(gnl->posbuf - saveprecpos + ft_strlen(*line) +
+temp : if (!(temp = ft_strnew(gnl->posbuf - saveprecpos + ft_strlen(*line) + 1))
+if (!(temp = ft_strnew(gnl->posbuf - saveprecpos + ft_strlen(*line) + 1)))
+temp : 
+temp : 	
+temp : 		ret
+temp : 		return 
+temp : 		return (-1)
+		return (-1);
+temp : 
+temp : f
+temp : ft_st
+temp : ft_strcpy
+temp : ft_strcpy(tem
+temp : ft_strcpy(temp, *
+temp : ft_strcpy(temp, *line
+ft_strcpy(temp, *line);
+temp : 
+temp : 
+temp : ft_p
+temp : ft_putst
+temp : ft_putstr("t
+temp : ft_putstr("temp 
+temp : ft_putstr("temp : ")
+ft_putstr("temp : ");
+temp : 
+temp : f
+temp : ft_pu
+temp : ft_putend
+temp : ft_putendl(*l
+temp : ft_putendl(*line)
+ft_putendl(*line);
+temp : 
+temp : f
+temp : ft_st
+temp : ft_strnca
+temp : ft_strncat(te
+temp : ft_strncat(temp, 
+temp : ft_strncat(temp, gnl-
+temp : ft_strncat(temp, gnl->buf
+temp : ft_strncat(temp, gnl->buf + s
+temp : ft_strncat(temp, gnl->buf + savep
+temp : ft_strncat(temp, gnl->buf + saveprecp
+temp : ft_strncat(temp, gnl->buf + saveprecpos, 
+temp : ft_strncat(temp, gnl->buf + saveprecpos, gnl-
+temp : ft_strncat(temp, gnl->buf + saveprecpos, gnl->pos
+temp : ft_strncat(temp, gnl->buf + saveprecpos, gnl->posbuf 
+temp : ft_strncat(temp, gnl->buf + saveprecpos, gnl->posbuf - sa
+temp : ft_strncat(temp, gnl->buf + saveprecpos, gnl->posbuf - savepr
+temp : ft_strncat(temp, gnl->buf + saveprecpos, gnl->posbuf - saveprecpo
+ft_strncat(temp, gnl->buf + saveprecpos, gnl->posbuf - saveprecpos);
+temp : 
+temp : 	fre
+temp : 	free(*l
+temp : 	free(*line)
+	free(*line);
+temp : 
+temp : *
+temp : *line
+temp : *line = t
+temp : *line = temp;
+*line = temp;
+temp : 
+temp : if
+temp : if (gn
+temp : if (gnl->b
+temp : if (gnl->buf[g
+temp : if (gnl->buf[gnl->
+temp : if (gnl->buf[gnl->posb
+temp : if (gnl->buf[gnl->posbuf] 
+temp : if (gnl->buf[gnl->posbuf] == '
+temp : if (gnl->buf[gnl->posbuf] == '\n')
+if (gnl->buf[gnl->posbuf] == '\n')
+temp : 
+temp : 	r
+temp : 	retur
+temp : 	return (1
+	return (1);
+temp : 
+temp : 
+temp : retu
+temp : return (
+temp : return (get_
+temp : return (get_next
+temp : return (get_next_lin
+temp : return (get_next_line(fd
+temp : return (get_next_line(fd, li
+temp : return (get_next_line(fd, line))
+return (get_next_line(fd, line));
+temp : 
+
+temp : 
+
+temp : 
+temp : in
+temp : int ma
+temp : int main(i
+temp : int main(int a
+temp : int main(int arcg,
+temp : int main(int arcg, cha
+temp : int main(int arcg, char **
+temp : 
+)
+temp : 
+
+temp : 
+temp : 	cha
+temp : 	char *l
+temp : 	char *line;
+	char *line;
+temp : 
+temp : in
+temp : int fd
+int fd;
+temp : 
+temp : 	
+temp : 	fd =
+temp : 	fd = ope
+temp : 	fd = open(ar
+temp : 	fd = open(argv[1
+temp : 	fd = open(argv[1], O
+temp : 	fd = open(argv[1], O_RDO
+temp : 	fd = open(argv[1], O_RDONLY)
+	fd = open(argv[1], O_RDONLY);
+temp : 
+temp : w
+temp : while
+temp : while (ge
+temp : while (get_ne
+temp : while (get_next_l
+temp : while (get_next_line(
+temp : while (get_next_line(fd, 
+temp : while (get_next_line(fd, &lin
+while (get_next_line(fd, &line))
+temp : 
+	{
+temp : 
+temp : 
+temp : 	ft_
+temp : 	ft_pute
+temp : 	ft_putendl(
+temp : 	ft_putendl(line
+	ft_putendl(line);
+temp : 
+temp : 
+}
+temp : 
+temp : r
+temp : retur
+temp : return (1
+return (1);
+temp : 
+temp : 
+
+temp : 
+
+temp : 
