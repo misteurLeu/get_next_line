@@ -14,14 +14,9 @@
 # define GET_NEXT_LINE_H
 
 # include "libft.h"
-# define BUF_SIZE 1
+# include <fcntl.h>
 
-typedef struct	s_gnl
-{
-	int			fd;
-	char		*buf;
-	size_t		posbuf;
-}				t_gnl;
+# define BUFF_SIZE 1000
 
 int				get_next_line(int const fd, char **line);
 
