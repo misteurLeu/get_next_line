@@ -6,7 +6,7 @@
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:09:19 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/10 18:04:51 by jleu             ###   ########.fr       */
+/*   Updated: 2016/01/24 11:55:40 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,34 @@
 int			get_next_line(int const fd, char **line)
 {
 	static char	buf[BUFF_SIZE + 1];
-	static int	posbuf = 0;
+	int			posbuf;
 	char		*temp;
-	char		*temp2;
-	size_t		saveprecpos;
 
 	temp = NULL;
-	temp2 = NULL;
+	*line = NULL;
+	posbuf = 0;
 	if (fd < 0 || !line)
 		return (-1);
 	while (buf[posbuf] != '\n')
 	{
 		if (!buf[posbuf] || buf[posbuf] == 26)
-		{
 			if (!(read(fd, buf, BUFF_SIZE)))
 			{
-				*line = ft_strdup(temp2);
-				free(temp2);
+				ft_bzero(buf, BUFF_SIZE + 1);
 				return (0);
 			}
-			posbuf = 0;
-		}
-		saveprecpos = posbuf;
+		posbuf = 0;
 		while (buf[posbuf] != '\n' && buf[posbuf] && buf[posbuf] != 26)
 			posbuf++;
-		temp = temp2;
-		if (!(temp2 = ft_strnew(BUFF_SIZE + ft_strlen(temp) + 1)))
+		temp = *line;
+		if (!(*line = ft_strnew(posbuf + ft_strlen(temp) + 1)))
 			return (-1);
-		ft_strcpy(temp2, temp);
-		ft_strncat(temp2, buf + saveprecpos, posbuf - saveprecpos);
+		ft_strcpy(*line, temp);
+		ft_strncat(*line, buf, posbuf);
 		if (temp)
 			free(temp);
+		ft_strcpy(buf, buf + posbuf);
 	}
-	*line = ft_strdup(temp2);
-	free(temp2);
-	posbuf++;
+	ft_strcpy(buf, buf + posbuf + 1);
 	return (1);
 }

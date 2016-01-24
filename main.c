@@ -4,12 +4,17 @@ int main(int argc, char **argv)
 {
 	char *line;
 	int fd;
-	fd = open(argv[1], O_RDONLY);
-	while(get_next_line(fd, &line))
+
+	while (1)
 	{
-		ft_putendl(line);
+		fd = open(argv[1], O_RDONLY);
+		while(get_next_line(fd, &line) > 0)
+		{
+			ft_putendl(line);
+			free(line);
+		}
+		close(fd);
 		free(line);
 	}
-	free(line);
 	return(0);
 }
