@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 15:52:49 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 15:36:05 by jleu             ###   ########.fr       */
+/*   Created: 2015/11/24 16:55:33 by jleu              #+#    #+#             */
+/*   Updated: 2015/12/01 17:26:47 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <fcntl.h>
-# define BUFF_SIZE 50000
+char	*ft_strstr(const char *s1, const char *s2)
+{
+	int cpt;
 
-int				get_next_line(int const fd, char **line);
-
-#endif
+	if (s2 == NULL || s1 == NULL)
+		return (NULL);
+	cpt = 0;
+	if (!*s2)
+		return ((char*)s1);
+	while (s1[cpt])
+	{
+		if (s1[cpt] == *s2 && ft_strnequ(&(s1[cpt]), s2, ft_strlen(s2)))
+			return ((char*)&(s1[cpt]));
+		cpt++;
+	}
+	return (NULL);
+}

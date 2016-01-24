@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 15:52:49 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 15:36:05 by jleu             ###   ########.fr       */
+/*   Created: 2015/11/27 08:43:58 by jleu              #+#    #+#             */
+/*   Updated: 2015/12/01 23:12:39 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <fcntl.h>
-# define BUFF_SIZE 50000
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+	size_t cpt;
 
-int				get_next_line(int const fd, char **line);
-
-#endif
+	if (dst && src)
+	{
+		cpt = 0;
+		while (cpt < n && (unsigned char)((char*)src)[cpt] != (unsigned char)c)
+		{
+			((char*)dst)[cpt] = ((char*)src)[cpt];
+			cpt++;
+		}
+		if (cpt < n)
+		{
+			((char*)dst)[cpt] = ((char*)src)[cpt];
+			cpt++;
+			return (&((char*)dst)[cpt]);
+		}
+	}
+	return (NULL);
+}

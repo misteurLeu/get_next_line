@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlonger.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 15:52:49 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 15:36:05 by jleu             ###   ########.fr       */
+/*   Created: 2015/12/02 08:34:07 by jleu              #+#    #+#             */
+/*   Updated: 2015/12/02 08:42:13 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <fcntl.h>
-# define BUFF_SIZE 50000
-
-int				get_next_line(int const fd, char **line);
-
-#endif
+char	*ft_strlonger(const char *s1, const char *s2)
+{
+	if (!s1 || !s2)
+		return (NULL);
+	if (ft_strlen(s1) >= ft_strlen(s2))
+		return ((char*)s1);
+	else
+		return ((char*)s2);
+}

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 15:52:49 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 15:36:05 by jleu             ###   ########.fr       */
+/*   Created: 2015/11/25 21:31:49 by jleu              #+#    #+#             */
+/*   Updated: 2015/12/01 20:17:26 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <fcntl.h>
-# define BUFF_SIZE 50000
-
-int				get_next_line(int const fd, char **line);
-
-#endif
+void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
+{
+	if (alst && (*del))
+	{
+		if ((*alst)->next)
+			ft_lstdel(&((*alst)->next), (*del));
+		ft_lstdelone(alst, (*del));
+	}
+}

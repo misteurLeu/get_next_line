@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 15:52:49 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 15:36:05 by jleu             ###   ########.fr       */
+/*   Created: 2015/11/23 18:46:19 by jleu              #+#    #+#             */
+/*   Updated: 2015/12/01 17:18:18 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <fcntl.h>
-# define BUFF_SIZE 50000
+char	*ft_strmap(char const *s, char (*f)(char))
+{
+	char			*str;
+	unsigned int	cpt;
 
-int				get_next_line(int const fd, char **line);
-
-#endif
+	if (s != NULL && (*f) != NULL)
+	{
+		if (!(str = ft_strdup((char*)s)))
+			return (NULL);
+		cpt = 0;
+		while (str[cpt])
+		{
+			str[cpt] = (*f)(str[cpt]);
+			cpt++;
+		}
+		return (str);
+	}
+	return (NULL);
+}

@@ -6,43 +6,58 @@
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:09:19 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 11:55:40 by jleu             ###   ########.fr       */
+/*   Updated: 2016/01/24 15:36:10 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int			get_next_line(int const fd, char **line)
+static void		cpyclearbuf(char (*buf)[BUFF_SIZE + 1], size_t dec)
 {
-	static char	buf[BUFF_SIZE + 1];
-	int			posbuf;
 	char		*temp;
 
+	temp = ft_strdup(*buf);
+	ft_bzero(*buf, BUFF_SIZE + 1);
+	ft_strcpy(*buf, temp + dec);
+	free(temp);
+}
+
+int				get_next_line(int const fd, char **line)
+{
+	static char	buf[512][BUFF_SIZE + 1];
+	size_t		posbuf;
+	char		*temp;
+	int			ret;
+
+	if (line == NULL || fd < 0)
+		return (-1);
 	temp = NULL;
 	*line = NULL;
 	posbuf = 0;
-	if (fd < 0 || !line)
-		return (-1);
-	while (buf[posbuf] != '\n')
+	cpyclearbuf(&(buf[fd]), 0);
+	while (*(buf[fd]) != '\n')
 	{
-		if (!buf[posbuf] || buf[posbuf] == 26)
-			if (!(read(fd, buf, BUFF_SIZE)))
+		if (!*(buf[fd]) || *(buf[fd]) == 26)
+		{
+			ret = read(fd, buf[fd], BUFF_SIZE);
+			if (ret <= 0)
 			{
-				ft_bzero(buf, BUFF_SIZE + 1);
-				return (0);
+				ft_bzero(buf[fd], BUFF_SIZE + 1);
+				return (ret);
 			}
-		posbuf = 0;
-		while (buf[posbuf] != '\n' && buf[posbuf] && buf[posbuf] != 26)
+		}
+		while (buf[fd][posbuf] != '\n' && buf[fd][posbuf] && buf[fd][posbuf] != 26)
 			posbuf++;
 		temp = *line;
 		if (!(*line = ft_strnew(posbuf + ft_strlen(temp) + 1)))
 			return (-1);
 		ft_strcpy(*line, temp);
-		ft_strncat(*line, buf, posbuf);
+		ft_strncat(*line, buf[fd], posbuf);
 		if (temp)
 			free(temp);
-		ft_strcpy(buf, buf + posbuf);
+		cpyclearbuf(&(buf[fd]), posbuf);
+		posbuf = 0;
 	}
-	ft_strcpy(buf, buf + posbuf + 1);
+	cpyclearbuf(&(buf[fd]), 1);
 	return (1);
 }

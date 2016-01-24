@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 15:52:49 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 15:36:05 by jleu             ###   ########.fr       */
+/*   Created: 2015/12/02 09:13:51 by jleu              #+#    #+#             */
+/*   Updated: 2015/12/02 10:07:27 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <fcntl.h>
-# define BUFF_SIZE 50000
+char	*ft_strtoupper(char *s)
+{
+	size_t cpt;
 
-int				get_next_line(int const fd, char **line);
-
-#endif
+	if (!s)
+		return (NULL);
+	cpt = 0;
+	while (s[cpt])
+	{
+		s[cpt] = (char)ft_toupper((int)s[cpt]);
+		cpt++;
+	}
+	return (s);
+}

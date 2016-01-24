@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 15:52:49 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 15:36:05 by jleu             ###   ########.fr       */
+/*   Created: 2015/11/23 18:21:00 by jleu              #+#    #+#             */
+/*   Updated: 2015/12/02 07:27:55 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <fcntl.h>
-# define BUFF_SIZE 50000
+void		ft_putnbr(int n)
+{
+	int		size;
+	int		isneg;
+	char	c[ft_nbrlen(n) + 1];
 
-int				get_next_line(int const fd, char **line);
-
-#endif
+	isneg = (n < 0);
+	if (isneg)
+		c[0] = '-';
+	size = ft_nbrlen(n);
+	c[size] = '\0';
+	size--;
+	while (size >= isneg)
+	{
+		c[size] = (isneg) ? -(n % 10) + '0' : n % 10 + '0';
+		n = n / 10;
+		size--;
+	}
+	ft_putstr(c);
+}
