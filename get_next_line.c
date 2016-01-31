@@ -6,13 +6,13 @@
 /*   By: jleu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:09:19 by jleu              #+#    #+#             */
-/*   Updated: 2016/01/24 15:36:10 by jleu             ###   ########.fr       */
+/*   Updated: 2016/01/31 11:51:39 by jleu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static void		cpyclearbuf(char (*buf)[BUFF_SIZE + 1], size_t dec)
+static int		cpyclearbuf(char (*buf)[BUFF_SIZE + 1], size_t dec)
 {
 	char		*temp;
 
@@ -20,44 +20,41 @@ static void		cpyclearbuf(char (*buf)[BUFF_SIZE + 1], size_t dec)
 	ft_bzero(*buf, BUFF_SIZE + 1);
 	ft_strcpy(*buf, temp + dec);
 	free(temp);
+	return (1);
+}
+
+static int		getendline(char *b, size_t pb)
+{
+	while (b[pb] != '\n' && b[pb] && b[pb] != 26)
+		pb++;
+	return (pb);
 }
 
 int				get_next_line(int const fd, char **line)
 {
-	static char	buf[512][BUFF_SIZE + 1];
-	size_t		posbuf;
-	char		*temp;
+	static char	b[512][BUFF_SIZE + 1];
+	size_t		pb;
+	char		*tmp;
 	int			ret;
 
-	if (line == NULL || fd < 0)
+	if ((line == NULL || fd < 0) || (tmp = NULL))
 		return (-1);
-	temp = NULL;
 	*line = NULL;
-	posbuf = 0;
-	cpyclearbuf(&(buf[fd]), 0);
-	while (*(buf[fd]) != '\n')
+	while (*(b[fd]) != '\n' && !(pb = 0))
 	{
-		if (!*(buf[fd]) || *(buf[fd]) == 26)
+		if ((!*(b[fd]) || *(b[fd]) == 26)
+			&& (ret = read(fd, b[fd], BUFF_SIZE)) < 1)
 		{
-			ret = read(fd, buf[fd], BUFF_SIZE);
-			if (ret <= 0)
-			{
-				ft_bzero(buf[fd], BUFF_SIZE + 1);
-				return (ret);
-			}
+			ft_bzero(b[fd], BUFF_SIZE + 1);
+			return ((ft_strlen(*line) != 0) ? 1 : ret);
 		}
-		while (buf[fd][posbuf] != '\n' && buf[fd][posbuf] && buf[fd][posbuf] != 26)
-			posbuf++;
-		temp = *line;
-		if (!(*line = ft_strnew(posbuf + ft_strlen(temp) + 1)))
-			return (-1);
-		ft_strcpy(*line, temp);
-		ft_strncat(*line, buf[fd], posbuf);
-		if (temp)
-			free(temp);
-		cpyclearbuf(&(buf[fd]), posbuf);
-		posbuf = 0;
+		pb = getendline(b[fd], pb);
+		tmp = *line;
+		*line = ft_strnew(pb + ft_strlen(tmp) + 1);
+		ft_strcpy(*line, tmp);
+		ft_strncat(*line, b[fd], pb);
+		(tmp) ? free(tmp) : tmp;
+		cpyclearbuf(&(b[fd]), pb);
 	}
-	cpyclearbuf(&(buf[fd]), 1);
-	return (1);
+	return (cpyclearbuf(&(b[fd]), 1));
 }
